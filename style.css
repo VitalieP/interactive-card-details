@@ -1,0 +1,387 @@
+:root {
+  /* colors */
+  --clr-primary-400: hsl(278, 68%, 11%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-300: hsl(270, 3%, 87%);
+  --clr-neutral-500: hsl(279, 6%, 55%);
+
+  --clr-accent-500: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --clr-accent-400: hsl(360, 100%, 62%);
+
+  --ff-body: "Space Grotesk", sans-serif;
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* styles */
+
+body {
+  font-family: var(--ff-body);
+  background-image: url("images/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 50em) {
+  body {
+    background-image: url("images/bg-main-desktop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-direction: row;
+  }
+}
+
+.container {
+  width: min(90%, 75em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+}
+
+@media (min-width: 50em) {
+  .container {
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: center;
+  }
+}
+
+.card-images {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 50em) {
+  .card-images {
+    margin-left: 3rem;
+    flex-direction: column-reverse;
+  }
+}
+
+.card-back img,
+.card-front img {
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 5px 33px -16px rgba(0, 0, 0, 0.65);
+  box-shadow: 5px 5px 33px -16px rgba(0, 0, 0, 0.65);
+}
+
+.card-back {
+  position: relative;
+  color: var(--clr-neutral-100);
+  margin-left: auto;
+}
+
+.card-front {
+  position: relative;
+  color: var(--clr-neutral-100);
+  margin-right: auto;
+}
+
+@media (min-width: 50em) {
+  .card-back {
+    margin-left: 3em;
+  }
+  .card-front {
+    margin-right: 5em;
+    margin-bottom: 1em;
+  }
+}
+
+@media (max-width: 38em) {
+  .card-back {
+    max-width: 85%;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+  .card-front {
+    max-width: 85%;
+    margin-right: auto;
+    margin-top: -2.5rem;
+  }
+  .card-name,
+  .exp-date {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 38em) {
+  .card-back {
+    margin-left: 2em;
+    margin-top: 2rem;
+  }
+  .card-front {
+    margin-right: 2em;
+    margin-top: -2.5rem;
+  }
+}
+
+/* details on cards */
+
+.logo {
+  width: 20%;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+.card-number {
+  position: absolute;
+  top: 45%;
+  left: 15px;
+}
+
+@media (min-width: 320px) {
+  .card-number {
+    font-size: clamp(1.125rem, 4vw, 3rem);
+  }
+}
+
+@media (min-width: 50em) {
+  .card-number {
+    font-size: 1.6rem;
+  }
+}
+
+.card-name {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+
+.exp-date {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+}
+
+.cvc-number {
+  position: absolute;
+  top: 38.5%;
+  right: 45px;
+}
+
+@media (min-width: 50em) {
+  .cvc-number {
+    top: 43%;
+    right: 55px;
+    font-size: 1.2rem;
+  }
+}
+
+/* form styles */
+
+@media (min-width: 50em) {
+  .form-container {
+    width: 40%;
+  }
+}
+
+@media (max-width: 50em) {
+  .form-container {
+    width: 85%;
+  }
+}
+
+
+form input {
+  border: 1px solid var(--clr-neutral-300);
+  border-radius: 8px;
+}
+
+input:focus {
+    outline: none;
+    border: solid 1px transparent;
+    border-radius: 8px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(35deg ,hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    
+   
+}
+
+button {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.8em 1em;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 0.8rem;
+}
+
+button:focus {
+    outline: none;
+    border: solid 1px transparent;
+    border-radius: 8px;
+    background-image: linear-gradient(var(--clr-primary-400), var(--clr-primary-400)), 
+                      linear-gradient(35deg ,hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--clr-neutral-100);
+}
+
+button:hover {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100);
+}
+
+
+
+.form-control {
+  margin-bottom: 0.8rem;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 0.8em 1em;
+  text-align: left;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--clr-neutral-400);
+}
+
+small {
+  color: #fe0000;
+  font-size: 0.875rem;
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+.form-control.error input {
+  border-color: #fe0000;
+}
+
+.form-control.success input {
+  border-color: var(--success-color);
+}
+
+.expDate.error small {
+  visibility: visible;
+}
+
+.expDate.error input {
+  border-color: #fe0000;
+}
+
+.expDate.success input {
+  border-color: var(--success-color);
+}
+
+.expDate {
+  margin-bottom: 0.8rem;
+}
+
+@media (min-width: 75em) {
+  .flex {
+    display: flex;
+    gap: 0.8rem;
+    
+  }
+}
+
+.hide-form {
+  display: none;
+}
+
+.complete {
+  display: none;
+}
+
+.complete img {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.complete {
+  padding: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+
+}
+
+.complete h2 {
+  font-size: 1.4rem;
+}
+.complete p {
+  color: grey;
+}
+
+.show-complete {
+  display: none;
+}

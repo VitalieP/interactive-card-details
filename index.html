@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <title>Interactive card details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-images">
+        <div class="card-back">
+          <img
+            class="back"
+            src="images/bg-card-back.png"
+            alt="card image back"
+          />
+          <div class="cvc-number">000</div>
+        </div>
+
+        <div class="card-front">
+          <img class="img-front" src="images/bg-card-front.png" alt="" />
+          <div class="form-readonly">
+            <div class="logo">
+              <img id="logo" src="images/card-logo.svg" alt="logo" />
+            </div>
+            <div class="card-number">0000 0000 0000 0000</div>
+
+            <div class="card-name">Jane Appleseed</div>
+            <div class="exp-date">00<span>/</span>00</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="form" class="form-container">
+        <form id="payment">
+          <div class="form-control">
+            <label for="cardholder_name">Cardholder Name</label>
+            <input
+              type="text"
+              id="cardholder_name"
+              placeholder="Jane Appleseed"
+              required
+            />
+            <small id="cardName">Please enter your name.</small>
+          </div>
+
+          <div class="form-control">
+            <label for="card_number">Card Number</label>
+            <input
+              id="card_number"
+              name="card_number"
+              type="text"
+              size="20"
+              placeholder="1234 5678 9123 0000"
+              required
+            />
+            <small id="cardNum">Please enter card number.</small>
+          </div>
+
+          <div class="form-control flex">
+            <div class="expDate">
+              <label for="exp_date">Exp. Date</label>
+              <input
+                type="text"
+                id="exp_date"
+                placeholder="MM/YY"
+                maxlength="5"
+                size="10"
+                required
+              />
+              <small id="error-message">Please enter expiration date.</small>
+            </div>
+
+            <div class="cvc form-control">
+              <label for="cvc_number">CVC</label>
+              <input
+                type="text"
+                id="cvc_number"
+                name="cvc_number"
+                placeholder="123"
+                maxlength="3"
+                size="5"
+                required
+              />
+              <small id="cvc">Please enter security code.</small>
+            </div>
+          </div>
+
+          <button type="submit" id="submit_btn">Confirm</button>
+        </form>
+      </div>
+      <div class="form-control complete show-complete">
+        <img src="images/icon-complete.svg" alt="check mark" />
+        <h2>THANK YOU!</h2>
+        <p>We've added your card details.</p>
+        <button type="submit" id="submit_btn">Continue</button>
+      </div>
+    </div>
+  </body>
+</html>
